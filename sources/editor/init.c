@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eharrag- <eharrag-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zytrams <zytrams@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/14 17:27:00 by djast             #+#    #+#             */
-/*   Updated: 2019/11/15 11:58:26 by eharrag-         ###   ########.fr       */
+/*   Updated: 2019/11/18 21:23:10 by zytrams          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,11 @@ t_input_field	*init_input_field(int x1, int y1, int x2, int y2)
 	return (field);
 }
 
-t_sector	*init_sector(void)
+t_ed_sector	*init_sector(void)
 {
-	t_sector	*sector;
+	t_ed_sector	*sector;
 
-	sector = (t_sector *)malloc(sizeof(t_sector));
+	sector = (t_ed_sector *)malloc(sizeof(t_ed_sector));
 	ft_bzero(sector->point, 100);
 	sector->size = 0;
 	sector->total_num_of_obj = 0;
@@ -45,11 +45,11 @@ t_sector	*init_sector(void)
 	return (sector);
 }
 
-t_sprite	*init_sprite(void)
+t_ed_sprite	*init_sprite(void)
 {
-	t_sprite	*sprite;
+	t_ed_sprite	*sprite;
 
-	sprite = (t_sprite *)malloc(sizeof(t_sprite));
+	sprite = (t_ed_sprite *)malloc(sizeof(t_ed_sprite));
 	sprite->type = 0;
 	sprite->x = 0;
 	sprite->y = 0;
@@ -60,7 +60,7 @@ t_sprite	*init_sprite(void)
 
 void		init_player(t_sdl *sdl)
 {
-	sdl->player = (t_point *)malloc(sizeof(t_point));
+	sdl->player = (t_ed_point *)malloc(sizeof(t_ed_point));
 	sdl->player->x = 0;
 	sdl->player->y = 0;
 }

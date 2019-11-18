@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eharrag- <eharrag-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zytrams <zytrams@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/02 10:11:40 by eharrag-          #+#    #+#             */
-/*   Updated: 2019/10/21 13:08:04 by eharrag-         ###   ########.fr       */
+/*   Updated: 2019/11/18 21:23:04 by zytrams          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "editor.h"
 
-void	draw_a_sprite(t_sdl *sdl, t_sprite *sprites)
+void	draw_a_sprite(t_sdl *sdl, t_ed_sprite *sprites)
 {
 	SDL_Rect	newrect;
 
@@ -28,7 +28,7 @@ void	draw_a_sprite(t_sdl *sdl, t_sprite *sprites)
 	}
 }
 
-void	draw_a_player(t_sdl *sdl, t_point *player)
+void	draw_a_player(t_sdl *sdl, t_ed_point *player)
 {
 	SDL_Rect	newrect;
 
@@ -40,7 +40,7 @@ void	draw_a_player(t_sdl *sdl, t_point *player)
 	SDL_RenderFillRect(sdl->renderer, &newrect);
 }
 
-void	draw_a_point(t_sdl *sdl, t_point *point, int i)
+void	draw_a_point(t_sdl *sdl, t_ed_point *point, int i)
 {
 	SDL_Rect	newrect;
 
@@ -52,7 +52,7 @@ void	draw_a_point(t_sdl *sdl, t_point *point, int i)
 	SDL_RenderFillRect(sdl->renderer, &newrect);
 }
 
-void	draw_a_sector(t_sdl *sdl, t_sector *sector, int dots)
+void	draw_a_sector(t_sdl *sdl, t_ed_sector *sector, int dots)
 {
 	int j;
 
@@ -71,7 +71,7 @@ void	draw_a_sector(t_sdl *sdl, t_sector *sector, int dots)
 
 void	draw(t_sdl *sdl)
 {
-	t_sector *cur_sector;
+	t_ed_sector *cur_sector;
 
 	cur_sector = sdl->sectors;
 	redraw(sdl);

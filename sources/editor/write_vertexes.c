@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   write_vertexes.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eharrag- <eharrag-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zytrams <zytrams@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/19 16:19:28 by djast             #+#    #+#             */
-/*   Updated: 2019/11/15 15:28:21 by eharrag-         ###   ########.fr       */
+/*   Updated: 2019/11/18 21:23:32 by zytrams          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int			write_vertexes_wall(t_sdl *sdl, int fd)
 {
-	t_sector	*cur_sector;
+	t_ed_sector	*cur_sector;
 	int			i;
 	int			id;
 	char		*char_id;
@@ -62,7 +62,7 @@ void		write_to_file(int fd, char *data, int numdata)
 
 void		write_vertexes_sprite(t_sdl *sdl, int fd, int last_id)
 {
-	t_sprite	*cur_sprite;
+	t_ed_sprite	*cur_sprite;
 	int			id;
 	char		*char_id = NULL;
 

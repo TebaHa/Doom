@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   check_intersection.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eharrag- <eharrag-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zytrams <zytrams@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/16 09:55:28 by eharrag-          #+#    #+#             */
-/*   Updated: 2019/10/23 09:13:27 by eharrag-         ###   ########.fr       */
+/*   Updated: 2019/11/18 21:12:40 by zytrams          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "editor.h"
 
-int		count_intersection(t_sdl *sdl, t_sector *head, int count)
+int		count_intersection(t_sdl *sdl, t_ed_sector *head, int count)
 {
 	count++;
 	if (count % 2 == 1)
@@ -20,7 +20,7 @@ int		count_intersection(t_sdl *sdl, t_sector *head, int count)
 	return (count);
 }
 
-void	find_intersection(t_sector *head, int i, int x2, int y2)
+void	find_intersection(t_ed_sector *head, int i, int x2, int y2)
 {
 	head->rh = (YO - head->point[i + 1].y) *
 			(head->point[i].x - head->point[i + 1].x) -
@@ -30,7 +30,7 @@ void	find_intersection(t_sector *head, int i, int x2, int y2)
 			(XO - head->point[i + 1].x) * (y2 - YO);
 }
 
-int		check_intersection(t_sdl *sdl, t_sector *head, int x2, int y2)
+int		check_intersection(t_sdl *sdl, t_ed_sector *head, int x2, int y2)
 {
 	int		i;
 	int		count;

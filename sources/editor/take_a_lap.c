@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   take_a_lap.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eharrag- <eharrag-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zytrams <zytrams@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 12:46:30 by eharrag-          #+#    #+#             */
-/*   Updated: 2019/10/23 09:05:14 by eharrag-         ###   ########.fr       */
+/*   Updated: 2019/11/18 21:12:59 by zytrams          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "editor.h"
 
-void	add_point(t_sdl *sdl, t_sector **sector, int i)
+void	add_point(t_sdl *sdl, t_ed_sector **sector, int i)
 {
 	(*sector)->point[(*sector)->size].x = sdl->grid_field[i].x;
 	(*sector)->point[(*sector)->size].y = sdl->grid_field[i].y;
@@ -20,7 +20,7 @@ void	add_point(t_sdl *sdl, t_sector **sector, int i)
 	add_command(&(sdl->commands), WALL_TYPE);
 }
 
-int		dot_in_used(t_sector *sector, int x, int y)
+int		dot_in_used(t_ed_sector *sector, int x, int y)
 {
 	int i;
 
@@ -37,7 +37,7 @@ int		dot_in_used(t_sector *sector, int x, int y)
 void	make_wall(t_sdl *sdl)
 {
 	int			i;
-	t_sector	*sector;
+	t_ed_sector	*sector;
 
 	sector = get_last_sector(sdl->sectors);
 	if (sector == NULL)

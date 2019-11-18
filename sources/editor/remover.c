@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   remover.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eharrag- <eharrag-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zytrams <zytrams@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/10 14:39:39 by eharrag-          #+#    #+#             */
-/*   Updated: 2019/10/21 12:52:49 by eharrag-         ###   ########.fr       */
+/*   Updated: 2019/11/18 21:23:24 by zytrams          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "editor.h"
 
-void	remove_last_sprite(t_sprite **sprites)
+void	remove_last_sprite(t_ed_sprite **sprites)
 {
-	t_sprite *cur_sprite;
-	t_sprite *prev_sprite;
+	t_ed_sprite *cur_sprite;
+	t_ed_sprite *prev_sprite;
 
 	prev_sprite = *sprites;
 	cur_sprite = (*sprites)->next;
@@ -37,10 +37,10 @@ void	remove_last_sprite(t_sprite **sprites)
 	}
 }
 
-void	remove_last_point(t_sector **head)
+void	remove_last_point(t_ed_sector **head)
 {
-	t_sector *cur_sector;
-	t_sector *prev_sector;
+	t_ed_sector *cur_sector;
+	t_ed_sector *prev_sector;
 
 	prev_sector = *head;
 	cur_sector = (*head)->next;

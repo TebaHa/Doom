@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   save_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eharrag- <eharrag-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zytrams <zytrams@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/19 11:51:43 by djast             #+#    #+#             */
-/*   Updated: 2019/10/21 13:22:12 by eharrag-         ###   ########.fr       */
+/*   Updated: 2019/11/18 21:12:56 by zytrams          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "editor.h"
 
-int	get_sector_count(t_sector *sect)
+int	get_ed_sector_count(t_ed_sector *sect)
 {
 	int count;
 

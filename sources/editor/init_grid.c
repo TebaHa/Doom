@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   init_grid.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eharrag- <eharrag-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zytrams <zytrams@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/04 15:04:11 by eharrag-          #+#    #+#             */
-/*   Updated: 2019/10/21 13:13:59 by eharrag-         ###   ########.fr       */
+/*   Updated: 2019/11/18 21:09:09 by zytrams          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "editor.h"
 
-int		check_the_grid(t_point *grid_field, int x, int y)
+int		check_the_grid(t_ed_point *grid_field, int x, int y)
 {
 	int i;
 
@@ -29,7 +29,7 @@ int		check_the_grid(t_point *grid_field, int x, int y)
 	return (-1);
 }
 
-void	save_the_grid(t_point *grid_field, SDL_Rect grid)
+void	save_the_grid(t_ed_point *grid_field, SDL_Rect grid)
 {
 	int i;
 	int x;
@@ -54,7 +54,7 @@ void	save_the_grid(t_point *grid_field, SDL_Rect grid)
 	}
 }
 
-void	init_grid(t_point *grid_field)
+void	init_grid(t_ed_point *grid_field)
 {
 	SDL_Rect	grid;
 

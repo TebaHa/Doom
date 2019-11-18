@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   write_to_file.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eharrag- <eharrag-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zytrams <zytrams@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/19 11:48:45 by djast             #+#    #+#             */
-/*   Updated: 2019/11/15 15:13:36 by eharrag-         ###   ########.fr       */
+/*   Updated: 2019/11/18 21:23:35 by zytrams          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void		write_world(t_sdl *sdl, int fd)
 	int		i;
 
 	write(fd, "world:	1	", 9);
-	sector_count = get_sector_count(sdl->sectors);
+	sector_count = get_ed_sector_count(sdl->sectors);
 	sectors = ft_itoa(sector_count);
 	write(fd, sectors, ft_strlen(sectors));
 	write(fd, "	", 1);
@@ -40,7 +40,7 @@ void		write_world(t_sdl *sdl, int fd)
 
 // void			write_polygone(t_sdl *sdl, int fd)
 // {
-// 	t_sector	*cur_sector;
+// 	t_ed_sector	*cur_sector;
 // 	int			i;
 // 	int			id;
 // 	char		*char_id;
@@ -96,7 +96,7 @@ void			write_player(t_sdl *sdl, int fd)
 
 void		write_sprites(t_sdl *sdl, int fd, int last_id)
 {
-	t_sprite	*cur_sprite;
+	t_ed_sprite	*cur_sprite;
 	int			id;
 	int			i;
 	char		*char_id;
@@ -126,7 +126,7 @@ void		write_sprites(t_sdl *sdl, int fd, int last_id)
 
 void		write_objects(t_sdl *sdl, int fd)
 {
-	t_sector	*cur_sector;
+	t_ed_sector	*cur_sector;
 	int			i;
 	int			id;
 	char		*char_id;
@@ -160,7 +160,7 @@ void		write_objects(t_sdl *sdl, int fd)
 
 void		write_sectors(t_sdl *sdl, int fd)
 {
-	t_sector	*cur_sector;
+	t_ed_sector	*cur_sector;
 	int			i;
 	int			num;
 	char		*char_id;

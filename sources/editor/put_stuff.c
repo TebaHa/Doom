@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   put_stuff.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eharrag- <eharrag-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zytrams <zytrams@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/11 11:16:02 by eharrag-          #+#    #+#             */
-/*   Updated: 2019/11/06 15:01:18 by eharrag-         ###   ########.fr       */
+/*   Updated: 2019/11/18 21:23:14 by zytrams          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "editor.h"
 
-void	fill_a_sprite(t_sdl *sdl, t_sprite *cur_sprite, int x, int y)
+void	fill_a_sprite(t_sdl *sdl, t_ed_sprite *cur_sprite, int x, int y)
 {
 	cur_sprite->type = sdl->button_pushed;
 	cur_sprite->x = x;
@@ -24,7 +24,7 @@ void	fill_a_sprite(t_sdl *sdl, t_sprite *cur_sprite, int x, int y)
 
 void	set_sprite(t_sdl *sdl, int x, int y)
 {
-	t_sprite	*cur_sprite;
+	t_ed_sprite	*cur_sprite;
 
 	cur_sprite = find_last_sprite(sdl->sprites);
 	if (check_intersection(sdl, sdl->sectors, x, y) % 2 == 1)

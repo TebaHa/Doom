@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   editor.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eharrag- <eharrag-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zytrams <zytrams@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/15 12:59:27 by djast             #+#    #+#             */
-/*   Updated: 2019/11/15 11:57:47 by eharrag-         ###   ########.fr       */
+/*   Updated: 2019/11/18 21:23:59 by zytrams          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -147,15 +147,15 @@ typedef struct				s_input_field
 	int						text_size;
 }							t_input_field;
 
-typedef struct				s_point
+typedef struct				s_ed_point
 {
 	int						x;
 	int						y;
-}							t_point;
+}							t_ed_point;
 
-typedef struct				s_sector
+typedef struct				s_ed_sector
 {
-	t_point					point[100];
+	t_ed_point				point[100];
 	int						size;
 	int						num_of_sector;
 	int						type_of_point;
@@ -164,8 +164,8 @@ typedef struct				s_sector
 	double					sh;
 	int						z;
 	int						total_num_of_obj;
-	struct s_sector			*next;
-}							t_sector;
+	struct s_ed_sector		*next;
+}							t_ed_sector;
 
 typedef struct 				s_commands
 {
@@ -173,14 +173,14 @@ typedef struct 				s_commands
 	struct s_commands		*next;
 }							t_commands;
 
-typedef struct				s_sprite
+typedef struct				s_ed_sprite
 {
 	int						type;
 	int						x;
 	int						y;
 	int						sector;
-	struct s_sprite			*next;
-}							t_sprite;
+	struct s_ed_sprite			*next;
+}							t_ed_sprite;
 
 typedef struct				s_sdl
 {
@@ -196,24 +196,24 @@ typedef struct				s_sdl
 	int						type_pressed;
 	int						count;
 	int						sprite_in_sector;
-	struct s_point			grid_field[GRID_SIZE];
-	struct s_sector			*sectors;
+	struct s_ed_point		grid_field[GRID_SIZE];
+	struct s_ed_sector			*sectors;
 	struct s_commands		*commands;
-	struct s_point			*player;
-	struct s_sprite			*sprites;
+	struct s_ed_point		*player;
+	struct s_ed_sprite			*sprites;
 	struct s_input_field	*map_name;
 }							t_sdl;
 
 void						init_sdl(t_sdl *sdl);
-void						init_grid(t_point *grid_field);
-t_sector					*init_sector();
+void						init_grid(t_ed_point *grid_field);
+t_ed_sector					*init_sector();
 void						init_player(t_sdl *sdl);
-t_sprite					*init_sprite();
+t_ed_sprite					*init_sprite();
 void						big_loop(t_sdl *sdl);
 void						clicks3(t_sdl *sdl);
-void						save_the_grid(t_point *grid_field, SDL_Rect	grid);
+void						save_the_grid(t_ed_point *grid_field, SDL_Rect	grid);
 void						make_wall(t_sdl *sdl);
-int							check_the_grid(t_point *grid_field, int x, int y);
+int							check_the_grid(t_ed_point *grid_field, int x, int y);
 void						redraw(t_sdl *sdl);
 void						draw_sidebar(t_sdl *sdl);
 void						player_button(t_sdl *sdl, SDL_Rect *button);
@@ -237,31 +237,31 @@ void						draw_headline(t_sdl *sdl);
 void						draw_text(t_sdl *sdl, char *text, SDL_Rect button, SDL_Color color);
 void						draw_grid(t_sdl *sdl);
 void						draw(t_sdl *sdl);
-void						choose_sprite_color(t_sdl *sdl, t_sprite *sprites);
-void						draw_a_sector(t_sdl *sdl, t_sector *sector, int i);
-void						draw_a_point(t_sdl *sdl, t_point *point, int i);
-void						delete_player(t_point *player);
-void						remove_last_point(t_sector **head);
-void						reset(t_sector **head, t_point	*player, t_sprite *sprites);
+void						choose_sprite_color(t_sdl *sdl, t_ed_sprite *sprites);
+void						draw_a_sector(t_sdl *sdl, t_ed_sector *sector, int i);
+void						draw_a_point(t_sdl *sdl, t_ed_point *point, int i);
+void						delete_player(t_ed_point *player);
+void						remove_last_point(t_ed_sector **head);
+void						reset(t_ed_sector **head, t_ed_point	*player, t_ed_sprite *sprites);
 void						delete_last_command(t_sdl *sdl);
-void						delete_point(t_sector *sector);
-void						remove_last_sprite(t_sprite **sprites);
-void						remove_last_point(t_sector **head);
+void						delete_point(t_ed_sector *sector);
+void						remove_last_sprite(t_ed_sprite **sprites);
+void						remove_last_point(t_ed_sector **head);
 void						add_command(t_commands **commands, int type);
-t_sector					*get_last_sector(t_sector *head);
-t_sprite					*find_last_sprite(t_sprite *sprites);
+t_ed_sector					*get_last_sector(t_ed_sector *head);
+t_ed_sprite					*find_last_sprite(t_ed_sprite *sprites);
 SDL_Color					*create_sdl_color(int r, int g, int b, int a);
 char						*cut_the_end(char *text);
-void						choose_type_of_point(t_sector **stuffbox, int type);
+void						choose_type_of_point(t_ed_sector **stuffbox, int type);
 void						make_player_or_sprite(t_sdl *sdl);
-int							check_intersection(t_sdl *sdl, t_sector *head, int x2, int y2);
+int							check_intersection(t_sdl *sdl, t_ed_sector *head, int x2, int y2);
 void						set_sprite(t_sdl *sdl, int x, int y);
 void						load_click(t_sdl *sdl);
 int							bigscarycondition(t_sdl *sdl);
 void						save_click(t_sdl *sdl);
 void						save_map(t_sdl *sdl, char *map_name);
 void						write_world(t_sdl *sdl, int fd);
-int							get_sector_count(t_sector *sect);
+int							get_ed_sector_count(t_ed_sector *sect);
 int							write_vertexes_wall(t_sdl *sdl, int fd);
 void						write_polygone(t_sdl *sdl, int fd);
 void						write_player(t_sdl *sdl, int fd);

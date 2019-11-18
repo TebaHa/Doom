@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eharrag- <eharrag-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zytrams <zytrams@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/14 16:34:40 by djast             #+#    #+#             */
-/*   Updated: 2019/11/11 15:16:58 by eharrag-         ###   ########.fr       */
+/*   Updated: 2019/11/18 21:23:30 by zytrams          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ char	*cut_the_end(char *text)
 	return (text);
 }
 
-void		choose_sprite_color(t_sdl *sdl, t_sprite *sprites)
+void		choose_sprite_color(t_sdl *sdl, t_ed_sprite *sprites)
 {
 	if (sprites->type == MEDKIT_PUSH)
 		SDL_SetRenderDrawColor(sdl->renderer, 255, 051, 051, 0);
@@ -52,7 +52,7 @@ void		choose_sprite_color(t_sdl *sdl, t_sprite *sprites)
 		SDL_SetRenderDrawColor(sdl->renderer, 000, 000, 255, 0);
 }
 
-t_sector	*get_last_sector(t_sector *head)
+t_ed_sector	*get_last_sector(t_ed_sector *head)
 {
 	if (head == NULL)
 		return (NULL);
@@ -61,7 +61,7 @@ t_sector	*get_last_sector(t_sector *head)
 	return (head);
 }
 
-t_sprite	*find_last_sprite(t_sprite *sprites)
+t_ed_sprite	*find_last_sprite(t_ed_sprite *sprites)
 {
 	if (sprites == NULL)
 		return (NULL);

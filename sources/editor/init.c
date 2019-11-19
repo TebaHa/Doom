@@ -6,7 +6,7 @@
 /*   By: zytrams <zytrams@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/14 17:27:00 by djast             #+#    #+#             */
-/*   Updated: 2019/11/18 21:23:10 by zytrams          ###   ########.fr       */
+/*   Updated: 2019/11/19 05:34:46 by zytrams          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,14 +67,7 @@ void		init_player(t_sdl *sdl)
 
 void		init_sdl(t_sdl *sdl)
 {
-	SDL_Init(SDL_INIT_VIDEO);
-	sdl->window = SDL_CreateWindow("Wolf3d", SDL_WINDOWPOS_UNDEFINED,
-					SDL_WINDOWPOS_UNDEFINED, SIZE_WIN_X, SIZE_WIN_Y,
-					SDL_WINDOW_OPENGL);
-	sdl->renderer = SDL_CreateRenderer(sdl->window, -1,
-					SDL_RENDERER_ACCELERATED);
-	TTF_Init();
-	sdl->font = TTF_OpenFont("resources/Samson.ttf", 200);
+	sdl->font = TTF_OpenFont("./editor/resources/Samson.ttf", 200);
 	sdl->button_pushed = WALL_PUSH;
 	sdl->sectors = init_sector();
 	sdl->commands = NULL;

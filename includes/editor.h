@@ -6,7 +6,7 @@
 /*   By: zytrams <zytrams@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/15 12:59:27 by djast             #+#    #+#             */
-/*   Updated: 2019/11/18 21:23:59 by zytrams          ###   ########.fr       */
+/*   Updated: 2019/11/18 22:15:36 by zytrams          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 # include <SDL_ttf.h>
 # include <limits.h>
 # include <fcntl.h>
-# include "libft.h"
-# include "get_next_line.h"
+# include "../libft/libft.h"
+# include "../libft/get_next_line.h"
 
 # define SIZE_WIN_X 2048
 # define SIZE_WIN_Y 1152
@@ -269,4 +269,12 @@ void						write_vertexes_sprite(t_sdl *sdl, int fd, int last_id);
 void						write_sprites(t_sdl *sdl, int fd, int last_id);
 void						write_sectors(t_sdl *sdl, int fd);
 void						write_objects(t_sdl *sdl, int fd);
+
+/*
+Control funs
+*/
+t_sdl						*init_editor(void);
+void						run_editor(t_sdl *sdl);
+void						stop_editor(t_sdl *sdl);
+
 #endif

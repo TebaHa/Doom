@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: eharrag- <eharrag-@student.42.fr>          +#+  +:+       +#+         #
+#    By: zytrams <zytrams@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/15 17:18:06 by djast             #+#    #+#              #
-#    Updated: 2019/11/07 16:22:33 by eharrag-         ###   ########.fr        #
+#    Updated: 2019/11/18 21:58:06 by zytrams          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -81,7 +81,6 @@ RESET = \033[0m
 all: $(NAME_EDITOR)
 
 $(NAME_EDITOR): $(LIBFT) $(OBJ_DIRECTORY) $(OBJ_DIRECTORY_EDITOR) $(OBJ_EDITOR_FILES)
-	@$(CC) $(CFLAGS) $(LIBS) $(INCLUDES) $(OBJ_EDITOR_FILES)  -o $(NAME_EDITOR)
 	@echo "$(RED)$(NAME_EDITOR) $(GREEN)compiled successfully!$(RESET)"
 
 $(OBJ_DIRECTORY):

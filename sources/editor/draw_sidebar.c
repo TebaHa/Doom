@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_sidebar.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eharrag- <eharrag-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zytrams <zytrams@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/16 12:31:52 by eharrag-          #+#    #+#             */
-/*   Updated: 2019/11/14 14:49:28 by eharrag-         ###   ########.fr       */
+/*   Updated: 2019/11/19 05:38:02 by zytrams          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 void	draw_text(t_sdl *sdl, char *text, SDL_Rect button, SDL_Color color)
 {
 	sdl->surface = TTF_RenderText_Solid(sdl->font, text, color);
-	SDL_DestroyTexture(sdl->text);
 	sdl->text = SDL_CreateTextureFromSurface(sdl->renderer,
 											sdl->surface);
 	SDL_FreeSurface(sdl->surface);
 	SDL_RenderCopy(sdl->renderer, sdl->text, NULL, &button);
+	SDL_DestroyTexture(sdl->text);
 }
 
 void	choose_color_of_button(t_sdl *sdl, int color)
@@ -87,7 +87,7 @@ void	draw_buttons_on_sidebar(t_sdl *sdl)
 	wall_button(sdl, button);
 	save_button(sdl, button);
 	load_button(sdl, button);
-	free(button);
+	SDL_free(button);
 }
 
 void	draw_sidebar(t_sdl *sdl)

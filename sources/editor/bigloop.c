@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   bigloop.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eharrag- <eharrag-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zytrams <zytrams@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 11:26:54 by eharrag-          #+#    #+#             */
-/*   Updated: 2019/11/15 11:51:50 by eharrag-         ###   ########.fr       */
+/*   Updated: 2019/11/18 21:52:41 by zytrams          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ void	big_loop(t_sdl *sdl)
 				textinput(sdl);
 			else if (sdl->window_event.type == SDL_KEYDOWN && SDLK_ESCAPE ==
 					sdl->window_event.key.keysym.sym)
-				exit(0);
+				break ;
 			else if (sdl->window_event.type == SDL_KEYDOWN && SDLK_BACKSPACE ==
 					sdl->window_event.key.keysym.sym)
 				delete_last_command(sdl);
